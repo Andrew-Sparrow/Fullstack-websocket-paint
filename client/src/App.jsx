@@ -1,25 +1,17 @@
 import React from 'react';
-import "./styles/app.scss"
-import SettingBar from "./components/SettingBar";
-import Toolbar from "./components/Toolbar";
-import Canvas from "./components/Canvas";
-import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom'
+import './styles/app.scss'
+import Canvas from './components/Canvas';
+import SettingBar from './components/SettingBar';
+import Toolbar from './components/Toolbar';
 
-const App = () => {
-    return (
-        <BrowserRouter>
-            <div className="app">
-                <Switch>
-                    <Route path='/:id'>
-                        <Toolbar/>
-                        <SettingBar/>
-                        <Canvas/>
-                    </Route>
-                    <Redirect to={`f${(+new Date).toString(16)}`}/>
-                </Switch>
-            </div>
-        </BrowserRouter>
-    );
-};
+function App(props) {
+  return (
+    <div className='app'>
+      <SettingBar />
+      <Toolbar />
+      <Canvas width={600} height={400} />
+    </div>
+  );
+}
 
 export default App;
